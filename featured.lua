@@ -37,8 +37,10 @@ end
 function featured:draw()
 	for i,ni in ipairs(self.list) do
 		if i == self.cursor then
-			lutro.graphics.setColor(255, 255, 255)
-			lutro.graphics.rectangle("fill", ni.x + c.x - 1, ni.y + c.y - 1, ni.w + 2, ni.h + 2)
+			if state == "featured" then
+				lutro.graphics.setColor(255, 255, 255)
+				lutro.graphics.rectangle("fill", ni.x + c.x - 1, ni.y + c.y - 1, ni.w + 2, ni.h + 2)
+			end
 			lutro.graphics.setColor(255, 166, 74)
 		else
 			lutro.graphics.setColor(230, 126, 34)
