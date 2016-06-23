@@ -32,8 +32,14 @@ function categories:gamepadpressed(i, k)
 			self.cursor = self.cursor - 1
 			--lutro.audio.play(hover)
 		end
-	elseif k == "right" then
-		state = "featured"
+	elseif k == "a" then
+		if self.cursor == 1 then
+			subpage = "featured"
+			focus = "featured"
+		elseif self.cursor == 2 then
+			subpage = "contentlist"
+			focus = "contentlist"
+		end
 	end
 end
 
@@ -43,7 +49,7 @@ end
 function categories:draw()
 	for i,ni in ipairs(self.list) do
 		if i == self.cursor then
-			if state == "categories" then
+			if focus == "categories" then
 				lutro.graphics.setColor(glowing, glowing, glowing)
 				lutro.graphics.rectangle("fill", ni.x + c.x - 1, (i-1)*50 + c.y - 1, ni.w + 2, ni.h + 2)
 			end

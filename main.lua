@@ -2,6 +2,7 @@ tween = require 'tween'
 require 'categories'
 require 'featured'
 require 'content'
+require 'contentlist'
 
 function lutro.conf(t)
 	t.width  = 1440
@@ -16,8 +17,10 @@ function lutro.load()
 	categories = newCategories()
 	featured = newFeatured()
 	content = newContent()
+	contentlist = newContentlist()
 
 	bg = lutro.graphics.newImage("assets/bg.png")
+	mask = lutro.graphics.newImage("assets/mask.png")
 	logo = lutro.graphics.newImage("assets/logo.png")
 	title = lutro.graphics.newImage("assets/title.png")
 
@@ -34,7 +37,9 @@ function lutro.load()
 	bgm:setLooping(true)
 	hover = lutro.audio.newSource("assets/blip_click.wav")
 
-	state = "categories"
+	page = "main"
+	subpage = "featured"
+	focus = "categories"
 	cur_y = 1
 	tm = 0.0
 	glowing = 255
@@ -47,11 +52,15 @@ end
 
 function lutro.gamepadpressed(i, k)
 	tm = 0
-	if state == "categories" then
-		categories:gamepadpressed(i, k)
-	elseif state == "featured" then
-		featured:gamepadpressed(i, k)
-	elseif state == "content" then
+	if page == "main" then
+		if focus == "categories" then
+			categories:gamepadpressed(i, k)
+		elseif focus == "featured" then
+			featured:gamepadpressed(i, k)
+		elseif focus == "contentlist" then
+			contentlist:gamepadpressed(i, k)
+		end
+	elseif page == "content" then
 		content:gamepadpressed(i, k)
 	end
 end
@@ -75,10 +84,16 @@ function lutro.draw()
 	lutro.graphics.clear()
 	lutro.graphics.draw(bg, 0, 0)
 
+	categories:draw()
+	if subpage == "featured" then
+		featured:draw()
+	elseif subpage == "contentlist" then
+		contentlist:draw()
+	end
+
+	content:draw()
+
+	lutro.graphics.draw(mask, 0, 0)
 	lutro.graphics.draw(logo, c.x, c.y - 100)
 	lutro.graphics.draw(title, c.x + 60, c.y - 91)
-
-	categories:draw()
-	featured:draw()
-	content:draw()
 end

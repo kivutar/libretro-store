@@ -17,20 +17,22 @@ end
 
 function featured:gamepadpressed(i, k)
 	if k == "down" then
-		if self.cursor < #self.list then
-			self.cursor = self.cursor + 1
-			--lutro.audio.play(hover)
+		if self.cursor == 1 then
+			self.cursor = 2
 		end
 	elseif k == "up" then
-		if (self.cursor > 1) then
-			self.cursor = self.cursor - 1
-			--lutro.audio.play(hover)
+		if self.cursor == 2 then
+			self.cursor = 1
 		end
+	elseif k == "right" then
+		self.cursor = 3
 	elseif k == "left" then
-		state = "categories"
+		self.cursor = 1
+	elseif k == "b" then
+		focus = "categories"
 	elseif k == "a" then
 		table.insert(tweens, tween.new(0.5, c, { x = c.x - 1440 }, "outQuad"))
-		state = "content"
+		page = "content"
 	end
 end
 
@@ -40,7 +42,7 @@ end
 function featured:draw()
 	for i,ni in ipairs(self.list) do
 		if i == self.cursor then
-			if state == "featured" then
+			if focus == "featured" then
 				lutro.graphics.setColor(glowing, glowing, glowing)
 				lutro.graphics.rectangle("fill", ni.x + c.x - 1, ni.y + c.y - 1, ni.w + 2, ni.h + 2)
 			end
