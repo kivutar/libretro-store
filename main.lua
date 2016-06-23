@@ -1,6 +1,7 @@
-local tween = require 'tween'
+tween = require 'tween'
 require 'categories'
 require 'featured'
+require 'content'
 
 function lutro.conf(t)
 	t.width  = 1440
@@ -14,6 +15,7 @@ function lutro.load()
 
 	categories = newCategories()
 	featured = newFeatured()
+	content = newContent()
 
 	bg = lutro.graphics.newImage("assets/bg.png")
 	logo = lutro.graphics.newImage("assets/logo.png")
@@ -34,6 +36,8 @@ function lutro.load()
 
 	state = "categories"
 	cur_y = 1
+	tm = 0.0
+	glowing = 255
 
 	table.insert(tweens, tween.new(0.5, c, { y = 270 }, "outQuad"))
 	table.insert(tweens, tween.new(10, c, { vol = 0.5 }, "outQuad"))
@@ -42,10 +46,13 @@ function lutro.load()
 end
 
 function lutro.gamepadpressed(i, k)
+	tm = 0
 	if state == "categories" then
 		categories:gamepadpressed(i, k)
 	elseif state == "featured" then
 		featured:gamepadpressed(i, k)
+	elseif state == "content" then
+		content:gamepadpressed(i, k)
 	end
 end
 
@@ -54,6 +61,9 @@ function lutro.gamepadreleased(i, k)
 end
 
 function lutro.update(dt)
+	tm = tm + 0.2
+	glowing = (math.cos(tm)/2+0.5)*255;
+
 	for _,t in ipairs(tweens) do
 		t:update(dt)
 	end
@@ -70,4 +80,5 @@ function lutro.draw()
 
 	categories:draw()
 	featured:draw()
+	content:draw()
 end

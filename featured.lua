@@ -28,6 +28,9 @@ function featured:gamepadpressed(i, k)
 		end
 	elseif k == "left" then
 		state = "categories"
+	elseif k == "a" then
+		table.insert(tweens, tween.new(0.5, c, { x = c.x - 1440 }, "outQuad"))
+		state = "content"
 	end
 end
 
@@ -38,7 +41,7 @@ function featured:draw()
 	for i,ni in ipairs(self.list) do
 		if i == self.cursor then
 			if state == "featured" then
-				lutro.graphics.setColor(255, 255, 255)
+				lutro.graphics.setColor(glowing, glowing, glowing)
 				lutro.graphics.rectangle("fill", ni.x + c.x - 1, ni.y + c.y - 1, ni.w + 2, ni.h + 2)
 			end
 			lutro.graphics.setColor(255, 166, 74)
