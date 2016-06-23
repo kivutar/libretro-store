@@ -22,7 +22,10 @@ function lutro.load()
 	lutro.graphics.setBackgroundColor(44, 62, 80)
 	font = lutro.graphics.newImageFont("assets/font.png",
 		" abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,!?-+/")
-	lutro.graphics.setFont(font)
+	sofia = lutro.graphics.newImageFont("assets/sofia.png",
+		" abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
+
+	lutro.graphics.setFont(sofia)
 
 	bgm   = lutro.audio.newSource("assets/bgmusic.wav")
 	bgm:setVolume(c.vol)
@@ -67,6 +70,4 @@ function lutro.draw()
 
 	categories:draw()
 	featured:draw()
-
-	--lutro.graphics.print("Hello world!", 3, 1)
 end
