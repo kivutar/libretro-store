@@ -1,0 +1,22 @@
+clrmamepro (
+	name "NES Homebrews"
+	description "NES Homebrews"
+)
+
+game (
+	name "Alter Ego"
+	description "You control a hero who has a phantom twin, his alter ego. When the hero moves, the alter ego moves too in a mirrored fashion."
+	rom ( name "Alter Ego.nes" )
+)
+
+game (
+	name "Ambushed"
+	description ""
+	rom ( name "Ambushed.nes" )
+)
+
+game (
+	name "Assimilate"
+	description ""
+	rom ( name "Assimilate.nes" )
+)
