@@ -5,12 +5,12 @@ function newContentlist()
 	local n = {}
 
 	n.list = {
-		{ x = 255, w = 965, h = 224, img = lutro.graphics.newImage("assets/sonic1.png") },
-		{ x = 255, w = 965, h = 224, img = lutro.graphics.newImage("assets/sonic2.png") },
-		{ x = 255, w = 965, h = 224, img = lutro.graphics.newImage("assets/sonic3.png") },
-		{ x = 255, w = 965, h = 224, img = lutro.graphics.newImage("assets/sonic1.png") },
-		{ x = 255, w = 965, h = 224, img = lutro.graphics.newImage("assets/sonic2.png") },
-		{ x = 255, w = 965, h = 224, img = lutro.graphics.newImage("assets/sonic3.png") },
+		{ x = 255, w = 965, h = 224, img = lutro.graphics.newImage("assets/sonic1.png"), title = "Sonic the Hedgehog" },
+		{ x = 255, w = 965, h = 224, img = lutro.graphics.newImage("assets/sonic2.png"), title = "Sonic the Hedgehog 2" },
+		{ x = 255, w = 965, h = 224, img = lutro.graphics.newImage("assets/sonic3.png"), title = "Sonic the Hedgehog 3" },
+		{ x = 255, w = 965, h = 224, img = lutro.graphics.newImage("assets/sonic1.png"), title = "Sonic the Hedgehog" },
+		{ x = 255, w = 965, h = 224, img = lutro.graphics.newImage("assets/sonic2.png"), title = "Sonic the Hedgehog 2" },
+		{ x = 255, w = 965, h = 224, img = lutro.graphics.newImage("assets/sonic3.png"), title = "Sonic the Hedgehog 3" },
 	}
 
 	n.y = 0
@@ -57,6 +57,10 @@ function contentlist:draw()
 		end
 		lutro.graphics.rectangle("fill", ni.x + c.x, 229*(i-1) + c.y + self.y, ni.w, ni.h)
 		lutro.graphics.draw(ni.img, ni.x + c.x, 229*(i-1) + c.y + self.y)
+
+		lutro.graphics.setFont(sofia24)
+		lutro.graphics.print(ni.title, ni.x + c.x + 340, 229*(i-1) + c.y + self.y + 20)
+		lutro.graphics.setFont(sofia16)
 	end
 end
 

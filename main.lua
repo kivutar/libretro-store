@@ -24,12 +24,12 @@ function lutro.load()
 	title = lutro.graphics.newImage("assets/title.png")
 
 	lutro.graphics.setBackgroundColor(44, 62, 80)
-	font = lutro.graphics.newImageFont("assets/font.png",
-		" abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,!?-+/")
-	sofia = lutro.graphics.newImageFont("assets/sofia.png",
+	sofia16 = lutro.graphics.newImageFont("assets/sofia16.png",
+		" abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
+	sofia24 = lutro.graphics.newImageFont("assets/sofia24.png",
 		" abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
 
-	lutro.graphics.setFont(sofia)
+	lutro.graphics.setFont(sofia16)
 
 	bgm   = lutro.audio.newSource("assets/bgmusic.wav")
 	bgm:setVolume(c.vol)
