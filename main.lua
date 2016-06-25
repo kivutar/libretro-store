@@ -1,13 +1,15 @@
+if love ~= nil then
+	lutro = love
+end
+
 tween = require 'tween'
 require 'categories'
 require 'featured'
 require 'content'
 require 'contentlist'
-
-function lutro.conf(t)
-	t.width  = 1440
-	t.height = 900
-end
+-- Include "conf.lua"
+-- @see https://github.com/libretro/libretro-lutro/issues/67
+require 'conf'
 
 function lutro.load()
 	c = { x = 120, y = 900, vol = 0 }
