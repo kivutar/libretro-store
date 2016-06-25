@@ -4,16 +4,20 @@ contentlist.__index = contentlist
 function newContentlist()
 	local n = {}
 
-	n.list = {
-		{ x = 255, w = 965, h = 224, img = lutro.graphics.newImage("assets/sonic1.png"), title = "Sonic the Hedgehog" },
-		{ x = 255, w = 965, h = 224, img = lutro.graphics.newImage("assets/sonic2.png"), title = "Sonic the Hedgehog 2" },
-		{ x = 255, w = 965, h = 224, img = lutro.graphics.newImage("assets/sonic3.png"), title = "Sonic the Hedgehog 3" },
-		{ x = 255, w = 965, h = 224, img = lutro.graphics.newImage("assets/sonic1.png"), title = "Sonic the Hedgehog" },
-		{ x = 255, w = 965, h = 224, img = lutro.graphics.newImage("assets/sonic2.png"), title = "Sonic the Hedgehog 2" },
-		{ x = 255, w = 965, h = 224, img = lutro.graphics.newImage("assets/sonic3.png"), title = "Sonic the Hedgehog 3" },
-	}
+	n.list = {}
 
 	n.y = 0
+
+	dat_load(nil, "dat/NES Homebrews.dat")
+
+	for i=1,3,1 do
+		entry = dat_get_value()
+		entry.x = 255
+		entry.w = 965
+		entry.h = 224
+		entry.img = lutro.graphics.newImage("thumbnails/NES Homebrews/Named_Snaps/" .. entry.name .. ".png")
+		table.insert(n.list, entry)
+	end
 
 	n.cursor = 1
 
@@ -59,8 +63,9 @@ function contentlist:draw()
 		lutro.graphics.draw(ni.img, ni.x + c.x, 229*(i-1) + c.y + self.y)
 
 		lutro.graphics.setFont(sofia24)
-		lutro.graphics.print(ni.title, ni.x + c.x + 340, 229*(i-1) + c.y + self.y + 20)
+		lutro.graphics.print(ni.name, ni.x + c.x + 276, 229*(i-1) + c.y + self.y + 20)
 		lutro.graphics.setFont(sofia16)
+		lutro.graphics.print(ni.description, ni.x + c.x + 276, 229*(i-1) + c.y + self.y + 60)
 	end
 end
 

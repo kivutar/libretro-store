@@ -5,15 +5,15 @@ function newCategories()
 	local n = {}
 
 	n.list = {
-		{ x = 0, y =   0, w = 250, h = 45, r = 41, g = 128, b = 185, lbl = "Featured Content" },
-		{ x = 0, y =  50, w = 250, h = 45, r = 41, g = 128, b = 185, lbl = "Indie Games" },
-		{ x = 0, y =  50, w = 250, h = 45, r = 41, g = 128, b = 185, lbl = "Demo" },
-		{ x = 0, y = 100, w = 250, h = 45, r = 41, g = 128, b = 185, lbl = "Atari 2600 Homebrews" },
-		{ x = 0, y = 150, w = 250, h = 45, r = 41, g = 128, b = 185, lbl = "NES Homebrews" },
-		{ x = 0, y = 200, w = 250, h = 45, r = 41, g = 128, b = 185, lbl = "SNES Homebrews" },
-		{ x = 0, y = 250, w = 250, h = 45, r = 41, g = 128, b = 185, lbl = "GBA Homebrews" },
-		{ x = 0, y = 300, w = 250, h = 45, r = 41, g = 128, b = 185, lbl = "PSP Homebrews" },
-		{ x = 0, y = 350, w = 250, h = 45, r = 41, g = 128, b = 185, lbl = "Music" },
+		{ x = 0, w = 250, h = 45, r = 41, g = 128, b = 185, lbl = "Featured Content" },
+		{ x = 0, w = 250, h = 45, r = 41, g = 128, b = 185, lbl = "NES Homebrews" },
+		{ x = 0, w = 250, h = 45, r = 41, g = 128, b = 185, lbl = "Indie Games" },
+		{ x = 0, w = 250, h = 45, r = 41, g = 128, b = 185, lbl = "Demo" },
+		{ x = 0, w = 250, h = 45, r = 41, g = 128, b = 185, lbl = "Atari 2600 Homebrews" },
+		{ x = 0, w = 250, h = 45, r = 41, g = 128, b = 185, lbl = "SNES Homebrews" },
+		{ x = 0, w = 250, h = 45, r = 41, g = 128, b = 185, lbl = "GBA Homebrews" },
+		{ x = 0, w = 250, h = 45, r = 41, g = 128, b = 185, lbl = "PSP Homebrews" },
+		{ x = 0, w = 250, h = 45, r = 41, g = 128, b = 185, lbl = "Music" },
 	}
 
 	n.cursor = 1

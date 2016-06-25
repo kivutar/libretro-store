@@ -1,8 +1,13 @@
 local dat_obj = {}
 local match_key = nil
 
+local function magiclines(s)
+        if s:sub(-1)~="\r\n" then s=s.."\r\n" end
+        return s:gmatch("(.-)\r\n")
+end
+
 local function dat_lexer(f, fname)
-    local line, err = f:read("*l")
+    local line = f()
     local location = {line_no = 1, column = 1, fname = fname}
     return function()
         local tok = nil
@@ -24,7 +29,7 @@ local function dat_lexer(f, fname)
                 fname = location.fname
             }
             if not line then
-                line = f:read("*l")
+                line = f()
                 location.line_no = location.line_no + 1
                 location.column = 1
             else
@@ -147,14 +152,10 @@ function dat_load(...)
 
     local dat_hash = {}
     for _, dat_path in ipairs(args) do
-        local dat_file, err = io.open(dat_path, "r")
-        if err then
-            error("could not open dat file '" .. dat_path .. "':" .. err)
-        end
+        local dat_file = lutro.filesystem.read(dat_path)
 
         print("Parsing dat file '" .. dat_path .. "'...")
-        local objs = dat_parser(dat_lexer(dat_file, dat_path))
-        dat_file:close()
+        local objs = dat_parser(dat_lexer(magiclines(dat_file), dat_path))
         for _, obj in pairs(objs) do
             if match_key then
                 local mk = get_match_key(match_key, obj)

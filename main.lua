@@ -7,6 +7,7 @@ require 'categories'
 require 'featured'
 require 'content'
 require 'contentlist'
+require 'dat'
 
 function lutro.load()
 	c = { x = 120, y = 900, vol = 0 }
