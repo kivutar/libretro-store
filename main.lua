@@ -7,9 +7,6 @@ require 'categories'
 require 'featured'
 require 'content'
 require 'contentlist'
--- Include "conf.lua"
--- @see https://github.com/libretro/libretro-lutro/issues/67
-require 'conf'
 
 function lutro.load()
 	c = { x = 120, y = 900, vol = 0 }
