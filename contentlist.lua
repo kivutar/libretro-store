@@ -10,8 +10,7 @@ function newContentlist()
 
 	dat_load(nil, "dat/NES Homebrews.dat")
 
-	for i=1,3,1 do
-		entry = dat_get_value()
+	for entry in dat_get_value do
 		entry.x = 255
 		entry.w = 965
 		entry.h = 224

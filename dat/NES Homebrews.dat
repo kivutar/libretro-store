@@ -4,6 +4,12 @@ clrmamepro (
 )
 
 game (
+	name "Action 53 Function 16 Volume 1"
+	description ""
+	rom ( name "Action 53 Function 16 Volume 1.nes" )
+)
+
+game (
 	name "Alter Ego"
 	description "You control a hero who has a phantom twin, his alter ego. When the hero moves, the alter ego moves too in a mirrored fashion."
 	rom ( name "Alter Ego.nes" )
@@ -17,6 +23,6 @@ game (
 
 game (
 	name "Assimilate"
-	description ""
+	description "You control an alien spaceship named Ossan.  The goal of each level is to maneuver Ossan around a series of deadly projectiles and enemies while kidnapping and assimilating the humans below.  Scoop up a human with your tractor beam and use one of four tools to convert them into your alien slave.  Then, plant them back in the same building from which you picked them up without dropping them.  The level is completed when you have assimilated 100% of the humans in the level."
 	rom ( name "Assimilate.nes" )
 )
