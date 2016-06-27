@@ -64,7 +64,7 @@ function contentlist:draw()
 		lutro.graphics.setFont(sofia24)
 		lutro.graphics.print(ni.name, ni.x + c.x + 276, 229*(i-1) + c.y + self.y + 20)
 		lutro.graphics.setFont(sofia16)
-		lutro.graphics.print(ni.description, ni.x + c.x + 276, 229*(i-1) + c.y + self.y + 60)
+		lutro.graphics.printf(ni.description, ni.x + c.x + 276, 229*(i-1) + c.y + self.y + 60, 660, "left")
 	end
 end
 
