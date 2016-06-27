@@ -26,7 +26,7 @@ function lutro.load()
 
 	lutro.graphics.setBackgroundColor(44, 62, 80)
 	sofia16 = lutro.graphics.newImageFont("assets/sofia16.png",
-		" abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,;:!?")
+		" abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,;:!?-+=/()[]{}@#&\"'_%$*")
 	sofia24 = lutro.graphics.newImageFont("assets/sofia24.png",
 		" abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
 
